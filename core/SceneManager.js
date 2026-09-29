@@ -1075,13 +1075,310 @@ const positions = [
                     container.innerHTML =
                         "";
 
+                    setTimeout(() => {
+                    this.startThirdMonth();
+                    }, 800);  
+
                 }
             );
 
         }
 
     }
+    
+    // ==================================================
+// ❤️ TERCER MES — 14 DAYS
+// ==================================================
 
+startThirdMonth() {
+
+    const container =
+        document.getElementById("letterContainer");
+
+    if (!container) {
+        return;
+    }
+
+    container.innerHTML = `
+        <div class="letter-overlay">
+            <div class="letter-card">
+
+                <h1>
+                    Something is different this time... ❤️
+                </h1>
+
+                <p>
+                    Because this time,
+                    I don't have to wait another month.
+                </p>
+
+                <h2>
+                    14 DAYS
+                </h2>
+
+                <p>
+                    until I finally get to see you.
+                </p>
+
+                <button id="continueThirdMonth">
+                    Continue ❤️
+                </button>
+
+            </div>
+        </div>
+    `;
+const continueButton =
+    document.getElementById("continueThirdMonth");
+
+if (continueButton) {
+    continueButton.addEventListener("click", () => {
+
+        container.innerHTML = "";
+
+        this.showThirdMonthExperience();
+
+    });
+}
+}
+showThirdMonthExperience() {
+
+    const container =
+        document.getElementById("letterContainer");
+
+    if (!container) {
+        return;
+    }
+
+    container.innerHTML = `
+        <div class="letter-overlay">
+            <div class="letter-card">
+
+                <h1>
+                    14 Days Until You ❤️
+                </h1>
+
+                <p>
+                    This time, there is no new island to explore.
+                </p>
+
+                <p>
+                    Because the next place I want to discover...
+                    is with you.
+                </p>
+
+                <h2>
+                    Our next adventure is real.
+                </h2>
+
+                <p>
+                    And it begins in just 14 days.
+                </p>
+
+                <button id="startCountdownExperience">
+                    Start ❤️
+                </button>
+
+            </div>
+        </div>
+    `;
+    const startButton =
+    document.getElementById("startCountdownExperience");
+
+if (startButton) {
+    startButton.addEventListener("click", () => {
+
+        this.showThreeMonthLetter();
+
+    });
+}
+
+}
+showThreeMonthLetter() {
+
+    const container =
+        document.getElementById("letterContainer");
+
+    if (!container) {
+        return;
+    }
+
+    container.innerHTML = `
+        <div class="letter-overlay">
+            <div class="letter-card">
+
+                <h1>
+                    Three Months With You ❤️
+                </h1>
+
+                <p>
+                    Three months ago, our story began,
+                    and somehow, even from far away,
+                    you became such an important part of my life.
+                </p>
+
+                <p>
+                    I know there is still a long road ahead of me.
+                    I have dreams I want to achieve,
+                    places I want to reach,
+                    and a future I want to build.
+                </p>
+
+                <p>
+                    And I want you to know something:
+                </p>
+
+                <h2>
+                    I will give everything I have to make it there.
+                </h2>
+
+                <p>
+                    I will work hard, keep moving forward,
+                    and do everything I can to turn my dreams
+                    into reality.
+                </p>
+
+                <p>
+                    Because when I imagine achieving them,
+                    I don't want to imagine that life without you.
+                </p>
+
+                <p>
+                    I want to experience those dreams with you,
+                    create new ones together,
+                    and one day look back at all the distance
+                    between us and know that it was worth it.
+                </p>
+
+                <h2>
+                    Happy three months, my love. ❤️
+                </h2>
+
+                <p>
+                    And now...<br>
+                    we don't have to count months anymore.
+                </p>
+
+                <h2>
+                    We can count the days. ❤️
+                </h2>
+
+                <button id="continueToCountdown">
+                    Continue ❤️
+                </button>
+
+            </div>
+        </div>
+    `;
+
+    const continueButton =
+        document.getElementById("continueToCountdown");
+
+    if (continueButton) {
+        continueButton.addEventListener("click", () => {
+            this.showRealCountdown();
+        });
+    }
+}
+showRealCountdown() {
+
+    const container =
+        document.getElementById("letterContainer");
+
+    if (!container) {
+        return;
+    }
+
+    container.innerHTML = `
+        <div class="letter-overlay">
+            <div class="letter-card">
+
+                <h1>Until I See You ❤️</h1>
+
+                <p>
+                    Every second brings me closer to you.
+                </p>
+
+                <div id="realCountdown">
+
+                    <h2 id="countdownDays">00 DAYS</h2>
+
+                    <p id="countdownTime">
+                        00 HOURS · 00 MINUTES · 00 SECONDS
+                    </p>
+
+                </div>
+
+                <p>
+                    October 13, 2026 · 11:30 PM ❤️
+                </p>
+
+            </div>
+        </div>
+    `;
+
+    const arrivalDate =
+        new Date("2026-10-13T23:30:00-06:00");
+
+    const updateCountdown = () => {
+
+        const now = new Date();
+
+        const difference =
+            arrivalDate.getTime() - now.getTime();
+
+        const daysElement =
+            document.getElementById("countdownDays");
+
+        const timeElement =
+            document.getElementById("countdownTime");
+
+        if (!daysElement || !timeElement) {
+            return;
+        }
+
+        if (difference <= 0) {
+
+            daysElement.textContent = "YOU'RE HERE ❤️";
+
+            timeElement.textContent =
+                "The wait is finally over.";
+
+            return;
+        }
+
+        const days =
+            Math.floor(difference / (1000 * 60 * 60 * 24));
+
+        const hours =
+            Math.floor(
+                (difference / (1000 * 60 * 60)) % 24
+            );
+
+        const minutes =
+            Math.floor(
+                (difference / (1000 * 60)) % 60
+            );
+
+        const seconds =
+            Math.floor(
+                (difference / 1000) % 60
+            );
+
+        daysElement.textContent =
+            `${days} DAYS`;
+
+        timeElement.textContent =
+            `${String(hours).padStart(2, "0")} HOURS · ` +
+            `${String(minutes).padStart(2, "0")} MINUTES · ` +
+            `${String(seconds).padStart(2, "0")} SECONDS`;
+    };
+
+    updateCountdown();
+
+    this.thirdMonthCountdown =
+        setInterval(updateCountdown, 1000);
+
+}
 
     // ==================================================
     // CARTA DEL SEGUNDO MES
